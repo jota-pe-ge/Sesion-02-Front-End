@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+      <!--comentario en html-->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: rgb(0,0,117);
+                color: rgba(255,255,255,.9);
+                font-family: 'Libre Baskerville', serif;
+                font-style: italic;
+                font-weight: 400;
+                font-size: calc(2rem + 0.5vw);
+            }
+            div {
+                padding: 2rem;
+            }
+            h1 {
+              font-style: normal;
+              font-weight: 700;
+              font-size: calc(2rem + 6vw);
+              padding: 0 0 3rem 0;
+            }
+
+            h1 span#nombre{
+              text-decoration: underline;
+            }
+            
+            p {
+                padding: 1rem;
+            }
+            @media (min-width: 800px) {
+                p {
+                    max-width: 60%;
+                }
+            }
+        </style>
+        <title>DANZA KUDUROOO!</title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"
+            integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body>
+        <div>
+            <h1><span id="saludo"></span> Me llamo <span id="nombre"></span></h1>
+            <p>Para la primera clase, estaba interesado en este curso gracias al GAN, un trabajo artístico mediante códigos de programación.</p>
+            <p>Ya en la segunda clase, debido a la teoría y los ejemplos de la primera, me he interesado aún más en este ramo, espero que me vaya bien en las evaluaciones.</p>
+        </div>
+        <script>
+          //comentario en JS
+            var opciones = ["Hola.", "Saludos.", "Wena.", "Qué tal?"];
+            function setup() {
+                createCanvas(windowWidth - 40, windowHeight - 40)
+                    .position(20, 20)
+                    .style("z-index", -1);
+                document.getElementById("nombre").textContent += "Jota";
+                document.getElementById("saludo").textContent += random(opciones);
+            }
+            function draw() {
+                background(0,20,137);
+                fill(209,26,18);
+                noStroke();
+                textSize(70);
+                text("👁",mouseX,mouseY);
+                //sombreado el emoji
+                fill(20);
+                ellipse(mouseX + 35,mouseY + 30 , 70, 10)
+            }
+            function windowResized() {
+                resizeCanvas(windowWidth - 40, windowHeight - 40);
+            }
+        </script>
+    </body>
+</html>
